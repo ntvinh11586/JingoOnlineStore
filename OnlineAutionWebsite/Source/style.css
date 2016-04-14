@@ -1,0 +1,25 @@
+body{
+	padding-top: 0px;
+}
+
+
+#header{
+	/*background-color: red;*/
+	margin-bottom: 10px;	
+}
+
+#content{
+	/*background-color: blue;*/
+}
+
+#footer,#footer a{
+	background-color: #616161;
+	/*height: 100px;*/
+	margin: 10px 0px 0px 0px;
+	color: white;
+}
+
+.pagination{
+	margin-right: 15px;
+}
+
