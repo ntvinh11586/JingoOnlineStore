@@ -43,3 +43,31 @@ body {
         padding: 15px 0;
     }
 }
+
+/* ----------------------------------vnthanh---------------------------------------------------------*/
+/* ---------------------------------- Pruduct Detail: thumbnail slider ---------------------------------------------------------*/
+/*Source: http://bootsnipp.com/snippets/featured/thumbnail-carousel*/
+/*without JS interval effect*/
+
+.carousel-control {
+  padding-top:10%;
+  width:5%;
+}
+
+/*--------Detail list-----------*/
+/*color for testing only*/
+#product_image{
+    background-color: gray;
+}
+
+#bid_detail{
+    background-color: blue;
+}
+
+#seller_buyer_detail{
+    background-color: orange;
+}
+
+#product_detail{
+    background-color: #4DB6AC;
+}

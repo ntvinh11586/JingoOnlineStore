@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ProductDetail</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <!-- <link href="css/heroic-features.css" rel="stylesheet"> -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.2/respond.min.js"></script>
+    <![endif]-->
+    <link type="text/css" href="style.css" rel="stylesheet"></style>
+
+</head>
+
+<body>
+<!-- Navigation bar #1 -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="http://placehold.it/150x50&text=Logo" alt="">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav pull-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">All Categories <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Clothes</a></li>
+                            <li><a href="#">Shoes</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="navbar-form" role="search">
+                            <div class="col-xs-6 col-md-12 input-group">
+                                <input type="text" class="form-control" placeholder="Search" name="q">
+
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav> <!-- End Navigation bar #1 -->
+
+    <div class="jumbotron specialjum" style="padding-top: 10px; padding-bottom: 10px;">
+        <div class="over container body-content">
+            <a class="col-md-1 btn btn-primary" style="margin-right: 20px; margin-left: -15px;" role="button">Buy</a>
+            <a class="col-md-1 btn btn-primary" style="margin-right: 20px;" role="button">Sell</a>
+            <a class="col-md-1 btn btn-primary" style="margin-right: 20px;" role="button">Help</a>
+            <a class="col-md-1 btn btn-primary pull-right" role="button" style="margin-right: 10px;">Sign In</a>
+            <a class="col-md-1 btn btn-success pull-right" role="button" style="margin-right: 20px">Sign Up</a>
+        </div>
+    </div>
+    
+    <div class="container-fluid">
+        <div class="row" id="header">
+            
+        </div>
+        <div class="row">
+            <ol class="breadcrumb">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Library</a></li>
+              <li class="active">Data</li>
+            </ol>
+        </div>
+        <div class="row" id="content">
+        	<div class="row">
+        		<div class="row">
+        			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="product_image">
+        				<img src="http://placehold.it/250x250">
+        			</div>
+        			<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" id="bid_detail">
+        				<h4>Laptop Dell Latitude 6410</h4>
+        				<ul>
+        					<li>Time remaining: 7 hours 30 minutes</li>
+        					<li>Brand: Dell New</li>
+        					<li>Color: Black</li>
+        					<li>----Edit box---</li>
+        				</ul>
+        			</div>
+        			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="seller_buyer_detail">
+        				<div class="row">
+        					<h4>Seller Info</h4>
+        					<ul>
+        						<li>Name: John Stone</li>
+        						<li>ID: 1312000</li>
+        						<li>Sell index: 9999</li>
+        						<li>Contacts: 094030xxx</li>
+        					</ul>
+        				</div>
+        				<div class="row">
+        					<h4>Buyer feedback</h4>
+        					<ul>
+        						<li><p>Enter your feedback here:........
+        						........................................
+        						................</p></li>
+        						<li>//Send button</li>
+        					</ul>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="row" id="product_detail">
+        		<h4>Product detail</h4>
+        		<ul>
+        			<li>Name: Laptop Dell Latitude 6410</li>
+        			<li>ID: 1112000</li>
+        			<li>Price: 9999</li>
+        			<li><p>Detail Description: ............
+        			......................................
+        			......................................
+        			</p></li>
+        		</ul>
+        	</div>
+           	<div class="well">
+   	            <div id="myCarousel1" class="carousel slide">
+   	            
+   	                <!-- Carousel items -->
+   	                <div class="carousel-inner">
+   	                    <div class="item active">
+   	                        <div class="row">
+   	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+   	                            </div>
+   	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+   	                            </div>
+   	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+   	                            </div>
+   	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+   	                            </div>
+   	                        </div>
+   	                        <!--/row-->
+   	                    </div>
+   	                    <!--/item-->
+   	                    <div class="item">
+   	                        <div class="row">
+   	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+   	                            </div>
+   	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+   	                            </div>
+   	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+   	                            </div>
+   	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+   	                            </div>
+   	                        </div>
+   	                        <!--/row-->
+   	                    </div>
+   	                    <!--/item-->
+   	                    <div class="item">
+   	                        <div class="row">
+   	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+   	                            </div>
+   	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+   	                            </div>
+   	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+   	                            </div>
+   	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+   	                            </div>
+   	                        </div>
+   	                        <!--/row-->
+   	                    </div>
+   	                    <!--/item-->
+   	                </div>
+   	                <!--/carousel-inner--> <a class="left carousel-control" href="#myCarousel1" data-slide="prev">‹</a>
+
+   	                <a class="right carousel-control" href="#myCarousel1" data-slide="next">›</a>
+   	            </div>
+   	            <!--/myCarousel-->
+           	</div>
+           	<!--/well-->
+        	<div class="well">
+	            <div id="myCarousel2" class="carousel slide">
+	            
+	                <!-- Carousel items -->
+	                <div class="carousel-inner">
+	                    <div class="item active">
+	                        <div class="row">
+	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+	                            </div>
+	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+	                            </div>
+	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+	                            </div>
+	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+	                            </div>
+	                        </div>
+	                        <!--/row-->
+	                    </div>
+	                    <!--/item-->
+	                    <div class="item">
+	                        <div class="row">
+	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+	                            </div>
+	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+	                            </div>
+	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+	                            </div>
+	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+	                            </div>
+	                        </div>
+	                        <!--/row-->
+	                    </div>
+	                    <!--/item-->
+	                    <div class="item">
+	                        <div class="row">
+	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+	                            </div>
+	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+	                            </div>
+	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+	                            </div>
+	                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+	                            </div>
+	                        </div>
+	                        <!--/row-->
+	                    </div>
+	                    <!--/item-->
+	                </div>
+	                <!--/carousel-inner--> <a class="left carousel-control" href="#myCarousel2" data-slide="prev">‹</a>
+
+	                <a class="right carousel-control" href="#myCarousel2" data-slide="next">›</a>
+	            </div>
+	            <!--/myCarousel-->
+        	</div>
+        	<!--/well-->
+        </div>
+        <div class="row" id="footer">
+            <hr>
+            <!-- Footer -->
+            <footer>
+                <div class="row">
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                        <img src="http://placehold.it/320x150" width="200" height="200">
+                    </div>
+                    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="">Register and Upgrade</a></li>
+                            <li><a href="">Buy</a></li>
+                            <li><a href="">Sell</a></li>
+                            <li><a href="">Help</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                        <h3>Contacts</h3>
+                        <ul>
+                            <li><h4>Phone: 090128390</h4></li>
+                            <li><h4>Fax: 090128490</h4></li>
+                            <li><h4>Email: G10_Bid@gmail.com</h4></li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
