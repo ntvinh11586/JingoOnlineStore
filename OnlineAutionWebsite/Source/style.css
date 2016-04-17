@@ -1,4 +1,4 @@
-
+﻿
 
 
 #header{
@@ -30,6 +30,11 @@ body {
     body {
         padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
     }
+}
+
+.image-product{
+    width: 250px;
+    height: 250px;
 }
 
 /* ----------------------------------vnthanh---------------------------------------------------------*/
