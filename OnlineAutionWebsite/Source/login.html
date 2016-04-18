@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Home Page</title>
+    <title>Login</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -94,6 +94,12 @@
 	
     <div class="container-fluid">
         <div class="row">
+            <ol class="breadcrumb">
+              <li><a href="#">Home</a></li>
+              <li class="active">Login</li>
+            </ol>
+        </div>
+        <div class="row">
             <div class="col-xs-4">
                     <p class="lead"><span class="text-success">Need help?</span></p>
                     <p><span class="text-success">Hello, welcome to join our audit commerce site. fHave you got any problem when you login? Please see some tips behind there to get more information.</span></p>
@@ -117,9 +123,7 @@
                         <div class="form-group">
                             <label for="password" class="control-label">Your password</label>
                             <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password">
-                            <!--<span class="help-block"></span>-->
                         </div>
-                        <!--<div id="loginErrorMsg" class="alert alert-error hide">Nome de usuário ou senha errada</div>-->
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" name="remember" id="remember"> Remember your password</input>
