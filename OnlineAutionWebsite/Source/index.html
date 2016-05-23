@@ -31,64 +31,70 @@
 
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="col-md-2">
-                <a href="index.html"><img src="images/logo.png" class="img-responsive" style="position:relative;top:5px;" /></a>
-            </div>
-            <div class="col-md-10" style="top:5px">
-                <ul class="nav navbar-nav navbar-left">
-                    
-                    <li>
-                        <form class="navbar-form">
-                            <div class="input-group">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button" onclick="window.location='searchresult.html'">Search</button>
-                                </span>
-                                <input type="text" class="form-control" />
-                            </div>
-                        </form>
-                    </li>
-                    <li  style="top: 8px">
-                        <select class="form-control">
-                            <option>All Categories</option>
-                            <option>Fashion</option>
-                            <option>Electronics</option>
-                            <option>Health And Beauty</option>
-                            <option>Home And Garden</option>
-                            <option>Sports</option>
-                        </select>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="col-md-9">
-                        <ul class="nav navbar-nav pull-right">
-                            <li class="active">
-                                <a href="ProductList.html">Buy</a>
-                            </li>
-                            <li class="divider-vertical"></li>
-                            <li>
-                                <a href="#">Sell</a>
-                            </li>
-                            <li class="divider-vertical"></li>
-                            <li>
-                                <a href="instruction.html">Help</a>
-                            </li>
-                            <li class="divider-vertical"></li>
-                            <li>
-                                <a href="register.html">Register</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="col-md-3">
-                        <div class="navbar-text text-right">
-                            <p>
-                                <a href="login.html">Login</a>
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+		<div class="container">
+			<div class="col-md-2 navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="index.html"><img src="images/logo.png" class="img-responsive" style="position:relative;top:5px;" /></a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<div class="col-md-10" style="top:5px">
+					<ul class="nav navbar-nav navbar-left">
+						<li>
+							<form class="navbar-form">
+								<div class="input-group">
+									<span class="input-group-btn">
+										<button class="btn btn-default" type="button" onclick="window.location='searchresult.html'">Search</button>
+									</span>
+									<input type="text" class="form-control" />
+								</div>
+							</form>
+						</li>
+						<li  style="top: 8px">
+							<select class="form-control">
+								<option>All Categories</option>
+								<option>Fashion</option>
+								<option>Electronics</option>
+								<option>Health And Beauty</option>
+								<option>Home And Garden</option>
+								<option>Sports</option>
+							</select>
+						</li>
+					</ul>
+					<div class="nav navbar-nav navbar-right">
+							<ul class="nav navbar-nav pull-right">
+								<li class="active">
+									<a href="ProductList.html">Buy</a>
+								</li>
+								<li class="divider-vertical"></li>
+								<li>
+									<a href="#">Sell</a>
+								</li>
+								<li class="divider-vertical"></li>
+								<li>
+									<a href="instruction.html">Help</a>
+								</li>
+								<li class="divider-vertical"></li>
+								<li>
+									<a href="register.html">Register</a>
+								</li>
+								<li class="divider-vertical"></li>
+								
+								<li class="navbar-text text-right">
+									<p>
+										<a href="login.html">Login</a>
+									</p>
+								</li>
+							</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
     </nav>
 
     <div class="container-fluid">
