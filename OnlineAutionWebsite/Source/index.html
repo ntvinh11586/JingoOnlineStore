@@ -11,6 +11,9 @@
 
     <title>Home Page</title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <script type="text/javascript" src="js/angularApp.js"></script>
+
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -29,7 +32,7 @@
 
 </head>
 
-<body>
+<body ng-app="onlineAuctionApp">
 	<nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="col-md-2">
@@ -91,7 +94,7 @@
         </div>
     </nav>
 
-    <div class="container-fluid">
+    <div class="container-fluid" ng-controller="mainController as main">
         <div class="row" id="header">
             
             <div class="col-md-12">
@@ -127,148 +130,14 @@
         	</ol>
         </div>
         <div class="row" id="content">
-            <div class="col-sm-3 col-lg-3 col-md-3">
+            <div class="col-sm-3 col-lg-3 col-md-3" ng-repeat="category in categories">
                 <div class="thumbnail">
-                    <img src="images/category1.jpg" alt="">
+                    <img src="{{category.image}}" alt="">
                     <div class="caption">
                         
-                        <h3><a href="productlist.html">Woman</a>
+                        <h3><a href="productlist.html">{{category.title}}</a>
                         </h3>
-                        <p>Welcome to our category. Everything you need to find, check out our category.</p>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="col-sm-3 col-lg-3 col-md-3">
-                <div class="thumbnail">
-                    <img src="images/category2.jpg" alt="">
-                    <div class="caption">
-                        
-                        <h3><a href="productlist.html">Man</a>
-                        </h3>
-                        <p>Welcome to our category. Everything you need to find, check out our category.</p>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="col-sm-3 col-lg-3 col-md-3">
-                <div class="thumbnail">
-                    <img src="images/category3.jpg" alt="">
-                    <div class="caption">
-                        
-                        <h3><a href="#">Kids</a>
-                        </h3>
-                        <p>Welcome to our category. Everything you need to find, check out our category.</p>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="col-sm-3 col-lg-3 col-md-3">
-                <div class="thumbnail">
-                    
-                <a href="ProductList.html"><img src="images/category4.jpg" alt=""></a>
-                    <div class="caption">
-                    
-                        <h3><a href="ProductList.html">Shoes</a>
-
-                        </h3>
-                        <p>Welcome to our category. Everything you need to find, check out our category.</p>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="col-sm-3 col-lg-3 col-md-3">
-                <div class="thumbnail">
-                    <img src="images/category5.jpg" alt="">
-                    <div class="caption">
-                        
-                        <h3><a href="productlist.html">Watch</a>
-                        </h3>
-                        <p>Welcome to our category. Everything you need to find, check out our category.</p>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="col-sm-3 col-lg-3 col-md-3">
-                <div class="thumbnail">
-                    <img src="images/category6.jpg" alt="">
-                    <div class="caption">
-                        
-                        <h3><a href="productlist.html">Laptop</a>
-                        </h3>
-                        <p>Welcome to our category. Everything you need to find, check out our category.</p>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="col-sm-3 col-lg-3 col-md-3">
-                <div class="thumbnail">
-                    <img src="images/category7.jpg" alt="">
-                    <div class="caption">
-                        
-                        <h3><a href="productlist.html">Bike</a>
-                        </h3>
-                        <p>Welcome to our category. Everything you need to find, check out our category.</p>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="col-sm-3 col-lg-3 col-md-3">
-                <div class="thumbnail">
-                    <img src="images/category8.jpg" alt="">
-                    <div class="caption">
-                        
-                        <h3><a href="productlist.html">Car</a>
-                        </h3>
-                        <p>Welcome to our category. Everything you need to find, check out our category.</p>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="col-sm-3 col-lg-3 col-md-3">
-                <div class="thumbnail">
-                    <img src="images/category9.jpg" alt="">
-                    <div class="caption">
-                        
-                        <h3><a href="productlist.html">House</a>
-                        </h3>
-                        <p>Welcome to our category. Everything you need to find, check out our category.</p>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="col-sm-3 col-lg-3 col-md-3">
-                <div class="thumbnail">
-                    <img src="images/category10.jpg" alt="">
-                    <div class="caption">
-                        
-                        <h3><a href="productlist.html">Kitchen</a>
-                        </h3>
-                        <p>Welcome to our category. Everything you need to find, check out our category.</p>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="col-sm-3 col-lg-3 col-md-3">
-                <div class="thumbnail">
-                    <img src="images/category11.jpg" alt="">
-                    <div class="caption">
-                        
-                        <h3><a href="productlist.html">Book</a>
-                        </h3>
-                        <p>Welcome to our category. Everything you need to find, check out our category.</p>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="col-sm-3 col-lg-3 col-md-3">
-                <div class="thumbnail">
-                    <img src="images/category12.jpg" alt="">
-                    <div class="caption">
-                        
-                        <h3><a href="productlist.html">Pen and pencil</a>
-                        </h3>
-                        <p>Welcome to our category. Everything you need to find, check out our category.</p>
+                        <p>{{category.description}}</p>
                     </div>
                     
                 </div>
