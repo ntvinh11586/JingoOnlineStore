@@ -1,5 +1,27 @@
 var app = angular.module('onlineAuctionApp', ['ui.router']);
 
+app.config([
+	'$stateProvider',
+	'$urlRouterProvider',
+	function($stateProvider, $urlRouterProvider){
+
+		$urlRouterProvider.otherwise('/home');
+
+		$stateProvider
+			.state('home', {
+				url: '/home',
+				templateUrl: '/home.html',
+				controller: 'mainController'
+			})
+			.state('product-list', {
+				url: '/product-list',
+				templateUrl: '/product-list.html',
+				controller: 'productListController'
+			});
+
+		
+}]);
+
 app.controller('mainController', function($scope){
 	$scope.categories = categories;
 
@@ -82,16 +104,3 @@ var productList = [
 		image : "images/product8.jpg"
 	}];
 
-app.config([
-	'$stateProvider',
-	'$urlRouterProvider',
-	function($stateProvider, $urlRouterProvider){
-
-		$stateProvider
-			.state('/home', {
-				url: '/home',
-				templateUrl: '/home.html',
-				controller: 'mainController'
-			});
-		$urlRouterProvider.otherwise('home');
-}]);
