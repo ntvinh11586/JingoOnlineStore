@@ -27,3 +27,57 @@ var categories = [
 		image : "images/category4.jpg"
 	}];
 
+app.controller('productListController', function($scope){
+	$scope.productList = productList;
+
+});
+
+var productList = [
+	{
+		price : "$83.99",
+		title : "Handmade Shoes",
+		description : "This shoes is paint by artist.",
+		image : "images/product1.jpg"
+	},
+	{
+		price : "$83.99",
+		title : "Handmade Shoes",
+		description : "This shoes is paint by artist.",
+		image : "images/product2.jpg"
+	},
+	{
+		price : "$83.99",
+		title : "Handmade Shoes",
+		description : "This shoes is paint by artist.",
+		image : "images/product3.jpg"
+	},
+	{
+		price : "$83.99",
+		title : "Handmade Shoes",
+		description : "This shoes is paint by artist.",
+		image : "images/product4.jpg"
+	},
+	{
+		price : "$83.99",
+		title : "Handmade Shoes",
+		description : "This shoes is paint by artist.",
+		image : "images/product5.jpg"
+	},
+	{
+		price : "$83.99",
+		title : "Handmade Shoes",
+		description : "This shoes is paint by artist.",
+		image : "images/product6.jpg"
+	},
+	{
+		price : "$83.99",
+		title : "Handmade Shoes",
+		description : "This shoes is paint by artist.",
+		image : "images/product7.jpg"
+	},
+	{
+		price : "$83.99",
+		title : "Handmade Shoes",
+		description : "This shoes is paint by artist.",
+		image : "images/product8.jpg"
+	}];
