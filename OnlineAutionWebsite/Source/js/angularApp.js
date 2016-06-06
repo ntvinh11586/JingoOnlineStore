@@ -1,4 +1,4 @@
-var app = angular.module('onlineAuctionApp', []);
+var app = angular.module('onlineAuctionApp', ['ui.router']);
 
 app.controller('mainController', function($scope){
 	$scope.categories = categories;
@@ -81,3 +81,17 @@ var productList = [
 		description : "This shoes is paint by artist.",
 		image : "images/product8.jpg"
 	}];
+
+app.config([
+	'$stateProvider',
+	'$urlRouterProvider',
+	function($stateProvider, $urlRouterProvider){
+
+		$stateProvider
+			.state('/home', {
+				url: '/home',
+				templateUrl: '/home.html',
+				controller: 'mainController'
+			});
+		$urlRouterProvider.otherwise('home');
+}]);
