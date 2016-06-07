@@ -5,7 +5,7 @@ app.config([
 	'$urlRouterProvider',
 	function($stateProvider, $urlRouterProvider){
 
-		$urlRouterProvider.otherwise('/home');
+		$urlRouterProvider.otherwise('/product-detail');
 
 		$stateProvider
 			.state('home', {
@@ -36,6 +36,7 @@ app.config([
 			.state('product-detail', {
 				url: '/product-detail',
 				templateUrl: '/product-detail.html',
+				controller: 'productDetailController'
 				
 			})
 			.state('register', {
@@ -139,3 +140,26 @@ var productList = [
 		image : "images/product8.jpg"
 	}];
 
+
+app.controller('productDetailController', function($scope){
+	$scope.productDetail = productDetail;
+});
+
+var productDetail = 
+	{
+		name : "sample name",
+		summary : "sample product summary",
+		rating : "this product is very good",
+		priceToBuy : "1000",
+		priceCurrentBid : "500",
+		status : "on sell",
+		startDay : "20/05/2016",
+		endDay : "01/06/2016",
+		numberOfBid : "20",
+
+		description : "This is a long, detail description of the product",
+		information : "This is the product's info",
+		review : "This is the product's review",
+
+		image : "images/product1.jpg"
+	};
