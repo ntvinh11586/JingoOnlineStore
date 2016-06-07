@@ -5,7 +5,7 @@ app.config([
 	'$urlRouterProvider',
 	function($stateProvider, $urlRouterProvider){
 
-		$urlRouterProvider.otherwise('/product-detail');
+		$urlRouterProvider.otherwise('/home');
 
 		$stateProvider
 			.state('home', {
@@ -57,6 +57,16 @@ app.config([
 				url: '/user-profile',
 				templateUrl: '/user-profile.html',
 				
+			})
+			.state('categories', {
+				url: '/categories/{id}',
+				templateUrl: '/product-list.html',
+				controller: 'productListController',
+				resolve: {
+					category: ['$stateParams', 'categories', function($stateParams, categories) {
+						return categories.get($stateParams.id);
+					}]
+				}
 			});
 
 		
@@ -73,6 +83,12 @@ app.factory('categories', ['$http', function($http){
 		});
 	};
 
+	o.get = function(id) {
+		return $http.get('/categories/' + id).then(function(res){
+			return res.data;
+		});
+	};
+
 	return o;
 }]);
 
@@ -82,34 +98,21 @@ app.controller('mainController', [
 	function($scope, categories){
 		$scope.categories = categories.categories;
 
+		$scope.getId = function(category){
+			return category._id;
+		}
+
 }]);
 
-// var categories = [
-// 	{
-// 		title : "Woman",
-// 		description : "Welcome to our category. Everything you need to find, check out our category.",
-// 		image : "images/category1.jpg"
-// 	},
-// 	{
-// 		title : "Man",
-// 		description : "Welcome to our category. Everything you need to find, check out our category.",
-// 		image : "images/category2.jpg"
-// 	},
-// 	{
-// 		title : "Kid",
-// 		description : "Welcome to our category. Everything you need to find, check out our category.",
-// 		image : "images/category3.jpg"
-// 	},
-// 	{
-// 		title : "Shoe",
-// 		description : "Welcome to our category. Everything you need to find, check out our category.",
-// 		image : "images/category4.jpg"
-// 	}];
-
-app.controller('productListController', function($scope){
-	$scope.productList = productList;
-
-});
+app.controller('productListController', [
+	'$scope', 
+	'categories', 
+	// 'category', 
+	function($scope, categories){
+		$scope.productList = productList;
+		//$scope.categories = categories;
+		//$scope.category = category;
+}]);
 
 var productList = [
 	{
