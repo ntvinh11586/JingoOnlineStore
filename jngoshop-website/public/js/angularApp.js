@@ -11,7 +11,11 @@ app.config([
 			.state('home', {
 				url: '/home',
 				templateUrl: '/home.html',
-				controller: 'mainController'
+				controller: 'mainController',
+				resolve: {
+					categoryPromise: ['categories', function(categories){
+						return categories.getAll();
+					}]}
 			})
 			.state('product-list', {
 				url: '/product-list',
@@ -57,32 +61,49 @@ app.config([
 		
 }]);
 
-app.controller('mainController', function($scope){
-	$scope.categories = categories;
+app.factory('categories', ['$http', function($http){
+	var o = {
+		categories: []
+	};
 
-});
+	o.getAll = function() {
+		return $http.get('/categories').success(function(data){
+			angular.copy(data, o.categories);
+		});
+	};
 
-var categories = [
-	{
-		title : "Woman",
-		description : "Welcome to our category. Everything you need to find, check out our category.",
-		image : "images/category1.jpg"
-	},
-	{
-		title : "Man",
-		description : "Welcome to our category. Everything you need to find, check out our category.",
-		image : "images/category2.jpg"
-	},
-	{
-		title : "Kid",
-		description : "Welcome to our category. Everything you need to find, check out our category.",
-		image : "images/category3.jpg"
-	},
-	{
-		title : "Shoe",
-		description : "Welcome to our category. Everything you need to find, check out our category.",
-		image : "images/category4.jpg"
-	}];
+	return o;
+}]);
+
+app.controller('mainController', [
+	'$scope', 
+	'categories', 
+	function($scope, categories){
+		$scope.categories = categories.categories;
+
+}]);
+
+// var categories = [
+// 	{
+// 		title : "Woman",
+// 		description : "Welcome to our category. Everything you need to find, check out our category.",
+// 		image : "images/category1.jpg"
+// 	},
+// 	{
+// 		title : "Man",
+// 		description : "Welcome to our category. Everything you need to find, check out our category.",
+// 		image : "images/category2.jpg"
+// 	},
+// 	{
+// 		title : "Kid",
+// 		description : "Welcome to our category. Everything you need to find, check out our category.",
+// 		image : "images/category3.jpg"
+// 	},
+// 	{
+// 		title : "Shoe",
+// 		description : "Welcome to our category. Everything you need to find, check out our category.",
+// 		image : "images/category4.jpg"
+// 	}];
 
 app.controller('productListController', function($scope){
 	$scope.productList = productList;
