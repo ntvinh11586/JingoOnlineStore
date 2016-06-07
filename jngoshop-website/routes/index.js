@@ -166,7 +166,10 @@ router.param('category', function(req, res, next, id){
 // });
 
 router.get('/categories/:category', function(req, res){
-	res.json(req.category);
+	req.category.populate('products', function(err, category){
+		if (err) {return next(err); }
+		res.json(req.category);
+	});
 });
 
 router.get('/categories/:category/products', function(req, res){

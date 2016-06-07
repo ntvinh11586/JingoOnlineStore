@@ -86,11 +86,13 @@ app.factory('categories', ['$http', function($http){
 	o.get = function(id) {
 		return $http.get('/categories/' + id).then(function(res){
 			return res.data;
+			// console.log(res.data);
 		});
 	};
 
 	return o;
 }]);
+
 
 app.controller('mainController', [
 	'$scope', 
@@ -129,62 +131,61 @@ app.controller('mainController', [
 app.controller('productListController', [
 	'$scope', 
 	'categories', 
-	// 'category', 
-	function($scope, categories){
-		$scope.productList = productList;
-		//$scope.categories = categories;
-		//$scope.category = category;
+	'category', 
+	function($scope, categories, category){
+		console.log(category.products);
+		$scope.products = category.products;
 }]);
 
-var productList = [
-	{
-		price : "$83.99",
-		title : "Handmade Shoes",
-		description : "This shoes is paint by artist.",
-		image : "images/product1.jpg"
-	},
-	{
-		price : "$83.99",
-		title : "Handmade Shoes",
-		description : "This shoes is paint by artist.",
-		image : "images/product2.jpg"
-	},
-	{
-		price : "$83.99",
-		title : "Handmade Shoes",
-		description : "This shoes is paint by artist.",
-		image : "images/product3.jpg"
-	},
-	{
-		price : "$83.99",
-		title : "Handmade Shoes",
-		description : "This shoes is paint by artist.",
-		image : "images/product4.jpg"
-	},
-	{
-		price : "$83.99",
-		title : "Handmade Shoes",
-		description : "This shoes is paint by artist.",
-		image : "images/product5.jpg"
-	},
-	{
-		price : "$83.99",
-		title : "Handmade Shoes",
-		description : "This shoes is paint by artist.",
-		image : "images/product6.jpg"
-	},
-	{
-		price : "$83.99",
-		title : "Handmade Shoes",
-		description : "This shoes is paint by artist.",
-		image : "images/product7.jpg"
-	},
-	{
-		price : "$83.99",
-		title : "Handmade Shoes",
-		description : "This shoes is paint by artist.",
-		image : "images/product8.jpg"
-	}];
+// var productList = [
+// 	{
+// 		price : "$83.99",
+// 		title : "Handmade Shoes",
+// 		description : "This shoes is paint by artist.",
+// 		image : "images/product1.jpg"
+// 	},
+// 	{
+// 		price : "$83.99",
+// 		title : "Handmade Shoes",
+// 		description : "This shoes is paint by artist.",
+// 		image : "images/product2.jpg"
+// 	},
+// 	{
+// 		price : "$83.99",
+// 		title : "Handmade Shoes",
+// 		description : "This shoes is paint by artist.",
+// 		image : "images/product3.jpg"
+// 	},
+// 	{
+// 		price : "$83.99",
+// 		title : "Handmade Shoes",
+// 		description : "This shoes is paint by artist.",
+// 		image : "images/product4.jpg"
+// 	},
+// 	{
+// 		price : "$83.99",
+// 		title : "Handmade Shoes",
+// 		description : "This shoes is paint by artist.",
+// 		image : "images/product5.jpg"
+// 	},
+// 	{
+// 		price : "$83.99",
+// 		title : "Handmade Shoes",
+// 		description : "This shoes is paint by artist.",
+// 		image : "images/product6.jpg"
+// 	},
+// 	{
+// 		price : "$83.99",
+// 		title : "Handmade Shoes",
+// 		description : "This shoes is paint by artist.",
+// 		image : "images/product7.jpg"
+// 	},
+// 	{
+// 		price : "$83.99",
+// 		title : "Handmade Shoes",
+// 		description : "This shoes is paint by artist.",
+// 		image : "images/product8.jpg"
+// 	}];
 
 
 app.controller('productDetailController', function($scope){
