@@ -67,6 +67,16 @@ app.config([
 						return categories.get($stateParams.id);
 					}]
 				}
+			})
+			.state('products', {
+				url: '/products/{id}',
+				templateUrl: '/product-detail.html',
+				controller: 'productDetailController',
+				resolve: {
+					product: ['$stateParams', 'products', function($stateParams, products) {
+						return products.get($stateParams.id);
+					}]
+				}
 			});
 
 		
@@ -86,12 +96,32 @@ app.factory('categories', ['$http', function($http){
 	o.get = function(id) {
 		return $http.get('/categories/' + id).then(function(res){
 			return res.data;
-			// console.log(res.data);
 		});
 	};
 
 	return o;
 }]);
+
+app.factory('products', ['$http', function($http){
+	var o = {
+		products: []
+	};
+
+	o.getAll = function() {
+		return $http.get('/products').success(function(data){
+			angular.copy(data, o.products);
+		});
+	};
+
+	o.get = function(id) {
+		return $http.get('/products/' + id).then(function(res){
+			return res.data;
+		});
+	};
+
+	return o;
+}]);
+
 
 
 app.controller('mainController', [
@@ -130,11 +160,14 @@ app.controller('mainController', [
 
 app.controller('productListController', [
 	'$scope', 
-	'categories', 
 	'category', 
-	function($scope, categories, category){
-		console.log(category.products);
+	function($scope, category){
+		// console.log(category.products);
 		$scope.products = category.products;
+
+		$scope.getId = function(product){
+			return product._id;
+		}
 }]);
 
 // var productList = [
@@ -188,28 +221,32 @@ app.controller('productListController', [
 // 	}];
 
 
-app.controller('productDetailController', function($scope){
-	$scope.productDetail = productDetail;
-});
+app.controller('productDetailController', [
+	'$scope',
+	'product',
+	function($scope, product){
+		console.log(product)
+		$scope.product = product;
+}]);
 
-var productDetail = 
-	{
-		name : "sample name",
-		summary : "sample product summary",
-		rating : "this product is very good",
-		priceToBuy : "1000",
-		priceCurrentBid : "500",
-		status : "on sell",
-		startDay : "20/05/2016",
-		endDay : "01/06/2016",
-		numberOfBid : "20",
+// var productDetail = 
+// 	{
+// 		name : "sample name",
+// 		summary : "sample product summary",
+// 		rating : "this product is very good",
+// 		priceToBuy : "1000",
+// 		priceCurrentBid : "500",
+// 		status : "on sell",
+// 		startDay : "20/05/2016",
+// 		endDay : "01/06/2016",
+// 		numberOfBid : "20",
 
-		description : "This is a long, detail description of the product",
-		information : "This is the product's info",
-		review : "This is the product's review",
+// 		description : "This is a long, detail description of the product",
+// 		information : "This is the product's info",
+// 		review : "This is the product's review",
 
-		image : "images/product1.jpg"
-	};
+// 		image : "images/product1.jpg"
+// 	};
 
 app.controller('userProfileController', function($scope){
 	$scope.userProfile = userProfile;
