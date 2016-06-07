@@ -17,6 +17,41 @@ app.config([
 				url: '/product-list',
 				templateUrl: '/product-list.html',
 				controller: 'productListController'
+			})
+			.state('contact', {
+				url: '/contact',
+				templateUrl: '/contact.html',
+				
+			})
+			.state('instruction', {
+				url: '/instruction',
+				templateUrl: '/instruction.html',
+				
+			})
+			.state('login', {
+				url: '/login',
+				templateUrl: '/login.html',
+				
+			})
+			.state('product-detail', {
+				url: '/product-detail',
+				templateUrl: '/product-detail.html',
+				
+			})
+			.state('register', {
+				url: '/register',
+				templateUrl: '/register.html',
+				
+			})
+			.state('search-result', {
+				url: '/search-result',
+				templateUrl: '/search-result.html',
+				
+			})
+			.state('user-profile', {
+				url: '/user-profile',
+				templateUrl: '/user-profile.html',
+				
 			});
 
 		
