@@ -5,7 +5,7 @@ app.config([
 	'$urlRouterProvider',
 	function($stateProvider, $urlRouterProvider){
 
-		$urlRouterProvider.otherwise('/product-detail');
+		$urlRouterProvider.otherwise('/user-profile');
 
 		$stateProvider
 			.state('home', {
@@ -56,7 +56,7 @@ app.config([
 			.state('user-profile', {
 				url: '/user-profile',
 				templateUrl: '/user-profile.html',
-				
+				controller: 'userProfileController'
 			});
 
 		
@@ -183,4 +183,20 @@ var productDetail =
 		review : "This is the product's review",
 
 		image : "images/product1.jpg"
+	};
+
+app.controller('userProfileController', function($scope){
+	$scope.userProfile = userProfile;
+});
+
+var userProfile = 
+	{ 
+		username : "sample user name",
+		fullname : "sample full name",
+		email : "me@gmail.com",
+		birthday : "user birthday",
+		address : "user adress",
+		contact : "user contact",
+
+		image : "images/user1.png"
 	};
