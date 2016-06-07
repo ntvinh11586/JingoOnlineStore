@@ -11,7 +11,7 @@ var mongoose = require('mongoose');
 var app = express();
 
 require('./models/Product');
-require('./models/Seller');
+// require('./models/Seller');
 require('./models/Category');
 
 mongoose.connect('mongodb://localhost/jngoshopdb');
