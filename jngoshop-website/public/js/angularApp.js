@@ -252,11 +252,9 @@ app.controller('productDetailController', [
 		console.log(product)
 		$scope.product = product;
 
-		$scope.bidprice = "";
-
 		$scope.bid = function(){
-		window.alert("Bid " + $scope.bidprice);
-	}
+			window.alert("Bid " + $scope.bidprice);
+		}
 
 }]);
 
