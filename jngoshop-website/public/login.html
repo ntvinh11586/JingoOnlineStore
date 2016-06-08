@@ -19,9 +19,12 @@
 
 		</div>            
 		<div class="col-xs-4">
+			<div ng-show="error" class="alert alert-danger row">
+				<span>{{ error.message }}</span>
+			</div>
 			<div class="well">
 				<p class="lead"><span class="text-success">Have an account?</span></p>
-				<form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
+				<form id="loginForm" novalidate="novalidate">
 					<div class="form-group">
 						<label for="username" class="control-label">Your username</label>
 						<input ng-model="user.username" type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">

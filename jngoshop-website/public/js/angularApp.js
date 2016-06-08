@@ -159,7 +159,7 @@ app.factory('auth', ['$http', '$window', function($http, $window){
    		var token = auth.getToken();
    		var payload = JSON.parse($window.atob(token.split('.')[1]));
 
-   		return payload.username;
+   		return payload.firstname;
    	}
    };
 
@@ -178,8 +178,6 @@ app.factory('auth', ['$http', '$window', function($http, $window){
    auth.logOut = function(){
    	$window.localStorage.removeItem('jingoshop-token');
    };
-
-
 
    return auth;
 }]);
