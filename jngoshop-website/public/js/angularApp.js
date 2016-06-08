@@ -35,18 +35,27 @@ app.config([
 			.state('login', {
 				url: '/login',
 				templateUrl: '/login.html',
-				controller: 'loginController'
+				controller: 'AuthCtrl',
+				onEnter: ['$state', 'auth', function($state, auth){
+					if(auth.isLoggedIn()){
+						$state.go('home');
+					}
+				}]
 			})
 			.state('product-detail', {
 				url: '/product-detail',
 				templateUrl: '/product-detail.html',
 				controller: 'productDetailController'
-				
 			})
 			.state('register', {
 				url: '/register',
 				templateUrl: '/register.html',
-				controller: 'registerController'
+				controller: 'AuthCtrl',
+				onEnter: ['$state', 'auth', function($state, auth){
+					if(auth.isLoggedIn()){
+						$state.go('home');
+					}
+				}]
 			})
 			.state('search-result', {
 				url: '/search-result',
@@ -122,6 +131,94 @@ app.factory('products', ['$http', function($http){
 	return o;
 }]);
 
+app.factory('auth', ['$http', '$window', function($http, $window){
+   var auth = {};
+
+   auth.saveToken = function (token){
+   	$window.localStorage['jingoshop-token'] = token;
+   };
+
+   auth.getToken = function (){
+   	return $window.localStorage['jingoshop-token'];
+   }
+
+   auth.isLoggedIn = function(){
+   	var token = auth.getToken();
+
+   	if(token){
+   		var payload = JSON.parse($window.atob(token.split('.')[1]));
+
+   		return payload.exp > Date.now() / 1000;
+   	} else {
+   		return false;
+   	}
+   };
+
+   auth.currentUser = function(){
+   	if(auth.isLoggedIn()){
+   		var token = auth.getToken();
+   		var payload = JSON.parse($window.atob(token.split('.')[1]));
+
+   		return payload.username;
+   	}
+   };
+
+   auth.register = function(user){
+   	return $http.post('/register', user).success(function(data){
+   		auth.saveToken(data.token);
+   	});
+   };
+
+   auth.logIn = function(user){
+   	return $http.post('/login', user).success(function(data){
+   		auth.saveToken(data.token);
+   	});
+   };
+
+   auth.logOut = function(){
+   	$window.localStorage.removeItem('jingoshop-token');
+   };
+
+
+
+   return auth;
+}]);
+
+
+app.controller('AuthCtrl', [
+	'$scope',
+	'$state',
+	'auth',
+	function($scope, $state, auth){
+		$scope.user = {};
+
+		$scope.register = function(){
+			console.log($scope.user);
+			auth.register($scope.user).error(function(error){
+				$scope.error = error;
+			}).then(function(){
+				$state.go('home');
+			});
+		};
+
+		$scope.logIn = function(){
+			auth.logIn($scope.user).error(function(error){
+				$scope.error = error;
+			}).then(function(){
+				$state.go('home');
+			});
+		};
+
+	}]);
+
+app.controller('NavbarCtrl', [
+	'$scope',
+	'auth',
+	function($scope, auth){
+		$scope.isLoggedIn = auth.isLoggedIn;
+		$scope.currentUser = auth.currentUser;
+		$scope.logOut = auth.logOut;
+	}]);
 
 
 app.controller('mainController', [
@@ -136,27 +233,6 @@ app.controller('mainController', [
 
 }]);
 
-// var categories = [
-// 	{
-// 		title : "Woman",
-// 		description : "Welcome to our category. Everything you need to find, check out our category.",
-// 		image : "images/category1.jpg"
-// 	},
-// 	{
-// 		title : "Man",
-// 		description : "Welcome to our category. Everything you need to find, check out our category.",
-// 		image : "images/category2.jpg"
-// 	},
-// 	{
-// 		title : "Kid",
-// 		description : "Welcome to our category. Everything you need to find, check out our category.",
-// 		image : "images/category3.jpg"
-// 	},
-// 	{
-// 		title : "Shoe",
-// 		description : "Welcome to our category. Everything you need to find, check out our category.",
-// 		image : "images/category4.jpg"
-// 	}];
 
 app.controller('productListController', [
 	'$scope', 
@@ -169,56 +245,6 @@ app.controller('productListController', [
 			return product._id;
 		}
 }]);
-
-// var productList = [
-// 	{
-// 		price : "$83.99",
-// 		title : "Handmade Shoes",
-// 		description : "This shoes is paint by artist.",
-// 		image : "images/product1.jpg"
-// 	},
-// 	{
-// 		price : "$83.99",
-// 		title : "Handmade Shoes",
-// 		description : "This shoes is paint by artist.",
-// 		image : "images/product2.jpg"
-// 	},
-// 	{
-// 		price : "$83.99",
-// 		title : "Handmade Shoes",
-// 		description : "This shoes is paint by artist.",
-// 		image : "images/product3.jpg"
-// 	},
-// 	{
-// 		price : "$83.99",
-// 		title : "Handmade Shoes",
-// 		description : "This shoes is paint by artist.",
-// 		image : "images/product4.jpg"
-// 	},
-// 	{
-// 		price : "$83.99",
-// 		title : "Handmade Shoes",
-// 		description : "This shoes is paint by artist.",
-// 		image : "images/product5.jpg"
-// 	},
-// 	{
-// 		price : "$83.99",
-// 		title : "Handmade Shoes",
-// 		description : "This shoes is paint by artist.",
-// 		image : "images/product6.jpg"
-// 	},
-// 	{
-// 		price : "$83.99",
-// 		title : "Handmade Shoes",
-// 		description : "This shoes is paint by artist.",
-// 		image : "images/product7.jpg"
-// 	},
-// 	{
-// 		price : "$83.99",
-// 		title : "Handmade Shoes",
-// 		description : "This shoes is paint by artist.",
-// 		image : "images/product8.jpg"
-// 	}];
 
 
 app.controller('productDetailController', [
@@ -236,24 +262,6 @@ app.controller('productDetailController', [
 
 }]);
 
-// var productDetail = 
-// 	{
-// 		name : "sample name",
-// 		summary : "sample product summary",
-// 		rating : "this product is very good",
-// 		priceToBuy : "1000",
-// 		priceCurrentBid : "500",
-// 		status : "on sell",
-// 		startDay : "20/05/2016",
-// 		endDay : "01/06/2016",
-// 		numberOfBid : "20",
-
-// 		description : "This is a long, detail description of the product",
-// 		information : "This is the product's info",
-// 		review : "This is the product's review",
-
-// 		image : "images/product1.jpg"
-// 	};
 
 app.controller('userProfileController', function($scope){
 	$scope.userProfile = userProfile;
@@ -289,34 +297,3 @@ app.controller('contactusController', function($scope){
 	}
 });
 
-
-app.controller('loginController', function($scope){
-	/*TODO*/
-	$scope.loginInfo = {username:"",password:""};
-
-	$scope.login = function(){
-		window.alert("Login " + $scope.loginInfo.username 
-			+ "\n"
-			+ $scope.loginInfo.password);
-	}
-});
-
-app.controller('registerController', function($scope){
-	
-	$scope.user = {firstname:"", lastname:"", username:"", email:"", password:""};
-
-	$scope.register = function(){
-		window.alert("Register " + $scope.user.firstname
-			+ "\n"
-			+ $scope.user.lastname 
-			+ "\n"
-			+ $scope.user.username
-			+ "\n"
-			+ $scope.user.email 
-			+ "\n"
-			+ $scope.user.password
-			);
-
-		/*window.alert("Thank you!");*/
-	}
-});
