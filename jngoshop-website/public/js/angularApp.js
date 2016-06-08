@@ -5,7 +5,7 @@ app.config([
 	'$urlRouterProvider',
 	function($stateProvider, $urlRouterProvider){
 
-		$urlRouterProvider.otherwise('/home');
+		$urlRouterProvider.otherwise('/product-list');
 
 		$stateProvider
 			.state('home', {
