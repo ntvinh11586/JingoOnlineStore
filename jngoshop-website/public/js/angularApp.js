@@ -5,7 +5,7 @@ app.config([
 	'$urlRouterProvider',
 	function($stateProvider, $urlRouterProvider){
 
-		$urlRouterProvider.otherwise('/register');
+		$urlRouterProvider.otherwise('/home');
 
 		$stateProvider
 			.state('home', {
@@ -227,6 +227,13 @@ app.controller('productDetailController', [
 	function($scope, product){
 		console.log(product)
 		$scope.product = product;
+
+		$scope.bidprice = "";
+
+		$scope.bid = function(){
+		window.alert("Bid " + $scope.bidprice);
+	}
+
 }]);
 
 // var productDetail = 
