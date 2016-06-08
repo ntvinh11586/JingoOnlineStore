@@ -303,18 +303,18 @@ app.controller('loginController', function($scope){
 
 app.controller('registerController', function($scope){
 	
-	$scope.registerinfo = {firstname:"",lastname:"",username:"",email:"",password:""};
+	$scope.user = {firstname:"", lastname:"", username:"", email:"", password:""};
 
 	$scope.register = function(){
-		window.alert("Register " + $scope.registerinfo.firstname
+		window.alert("Register " + $scope.user.firstname
 			+ "\n"
-			+ $scope.registerinfo.lastname 
+			+ $scope.user.lastname 
 			+ "\n"
-			+ $scope.registerinfo.username
+			+ $scope.user.username
 			+ "\n"
-			+ $scope.registerinfo.email 
+			+ $scope.user.email 
 			+ "\n"
-			+ $scope.registerinfo.password
+			+ $scope.user.password
 			);
 
 		/*window.alert("Thank you!");*/
