@@ -5,7 +5,7 @@ app.config([
 	'$urlRouterProvider',
 	function($stateProvider, $urlRouterProvider){
 
-		$urlRouterProvider.otherwise('/home');
+		$urlRouterProvider.otherwise('/register');
 
 		$stateProvider
 			.state('home', {
@@ -25,7 +25,7 @@ app.config([
 			.state('contact', {
 				url: '/contact',
 				templateUrl: '/contact.html',
-				
+				controller: 'contactusController'
 			})
 			.state('instruction', {
 				url: '/instruction',
@@ -35,7 +35,7 @@ app.config([
 			.state('login', {
 				url: '/login',
 				templateUrl: '/login.html',
-				
+				controller: 'loginController'
 			})
 			.state('product-detail', {
 				url: '/product-detail',
@@ -46,12 +46,12 @@ app.config([
 			.state('register', {
 				url: '/register',
 				templateUrl: '/register.html',
-				
+				controller: 'registerController'
 			})
 			.state('search-result', {
 				url: '/search-result',
 				templateUrl: '/search-result.html',
-				
+				controller: 'registerController'
 			})
 			.state('user-profile', {
 				url: '/user-profile',
@@ -263,3 +263,53 @@ var userProfile =
 
 		image : "images/user1.png"
 	};
+
+
+/*Angular Input Data Binding*/
+
+app.controller('contactusController', function($scope){
+	/*TODO*/
+	$scope.contact = {name:"",email:"",message:""};
+
+	$scope.submitContact = function(){
+		window.alert("Hi " + $scope.contact.name 
+			+ "\n"
+			+ $scope.contact.email 
+			+ "\n"
+			+ $scope.contact.message);
+
+		/*window.alert("Thank you!");*/
+	}
+});
+
+
+app.controller('loginController', function($scope){
+	/*TODO*/
+	$scope.loginInfo = {username:"",password:""};
+
+	$scope.login = function(){
+		window.alert("Login " + $scope.loginInfo.username 
+			+ "\n"
+			+ $scope.loginInfo.password);
+	}
+});
+
+app.controller('registerController', function($scope){
+	
+	$scope.registerinfo = {firstname:"",lastname:"",username:"",email:"",password:""};
+
+	$scope.register = function(){
+		window.alert("Register " + $scope.registerinfo.firstname
+			+ "\n"
+			+ $scope.registerinfo.lastname 
+			+ "\n"
+			+ $scope.registerinfo.username
+			+ "\n"
+			+ $scope.registerinfo.email 
+			+ "\n"
+			+ $scope.registerinfo.password
+			);
+
+		/*window.alert("Thank you!");*/
+	}
+});
