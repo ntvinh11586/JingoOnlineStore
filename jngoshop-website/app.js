@@ -16,6 +16,9 @@ require('./models/User');
 require('./config/passport');
 
 mongoose.connect('mongodb://thanhphong:ngoc0106@ds038739.mlab.com:38739/jingoshop');
+// local
+// mongoose.connect('mongodb://localhost/jngoshopdb');
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
