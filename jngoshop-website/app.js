@@ -15,7 +15,7 @@ require('./models/Category');
 require('./models/User');
 require('./config/passport');
 
-mongoose.connect('mongodb://localhost/jngoshopdb');
+mongoose.connect('mongodb://thanhphong:ngoc0106@ds038739.mlab.com:38739/jingoshop');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
