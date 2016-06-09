@@ -128,6 +128,16 @@ app.factory('products', ['$http', function($http){
 		});
 	};
 
+	o.bid = function(id, currentPrice){
+		return $http.put('/products/' + id + '/current-price', {'currentPrice': currentPrice}).then(function(res){
+			console.log(res);
+		});
+	}
+
+	// o.update = function(id, price){
+	// 	return $http.put('/products/' + id, )
+	// }
+
 	return o;
 }]);
 
@@ -160,6 +170,15 @@ app.factory('auth', ['$http', '$window', function($http, $window){
    		var payload = JSON.parse($window.atob(token.split('.')[1]));
 
    		return payload.firstname;
+   	}
+   };
+
+   auth.getUserId = function(){
+   	if(auth.isLoggedIn()){
+   		var token = auth.getToken();
+   		var payload = JSON.parse($window.atob(token.split('.')[1]));
+
+   		return payload._id;
    	}
    };
 
@@ -216,6 +235,7 @@ app.controller('NavbarCtrl', [
 		$scope.isLoggedIn = auth.isLoggedIn;
 		$scope.currentUser = auth.currentUser;
 		$scope.logOut = auth.logOut;
+		$scope.getUserId = auth.getUserId;
 	}]);
 
 
@@ -247,14 +267,28 @@ app.controller('productListController', [
 
 app.controller('productDetailController', [
 	'$scope',
+	'auth',
+	'products',
 	'product',
-	function($scope, product){
-		console.log(product)
+	function($scope, auth, products, product){
+
 		$scope.product = product;
 
-		$scope.bid = function(){
-			window.alert("Bid " + $scope.bidprice);
+		$scope.getId = function(product){
+			return product._id;
 		}
+
+		$scope.bid = function() {
+			if ($scope.currentPrice <= product.currentPrice){
+				window.alert('Your price must be larger than ' + product.currentPrice);
+				return;
+			}
+
+			products.bid(product._id, $scope.currentPrice);
+			product.currentPrice = $scope.currentPrice;
+			$scope.currentPrice = "";
+		}
+
 
 }]);
 
