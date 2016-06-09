@@ -20,7 +20,11 @@ app.config([
 			.state('product-list', {
 				url: '/product-list',
 				templateUrl: '/product-list.html',
-				controller: 'productListController'
+				controller: 'productListController',
+				resolve: {
+					categoryPromise: ['categories', function(categories){
+						return categories.getAll();
+					}]}
 			})
 			.state('contact', {
 				url: '/contact',
@@ -74,6 +78,9 @@ app.config([
 				resolve: {
 					category: ['$stateParams', 'categories', function($stateParams, categories) {
 						return categories.get($stateParams.id);
+					}],
+					categoryPromise: ['categories', function(categories){
+						return categories.getAll();
 					}]
 				}
 			})
@@ -254,10 +261,14 @@ app.controller('mainController', [
 
 app.controller('productListController', [
 	'$scope', 
-	'category', 
-	function($scope, category){
+	'categories',
+	'category',
+	function($scope, categories, category){
 		// console.log(category.products);
 		$scope.products = category.products;
+
+		// console.log(categoryPromise.categories);
+		$scope.categories = categories.categories;
 
 		$scope.getId = function(product){
 			return product._id;
