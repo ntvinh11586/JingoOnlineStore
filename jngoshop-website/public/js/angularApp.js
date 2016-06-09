@@ -270,8 +270,16 @@ app.controller('productListController', [
 		// console.log(categoryPromise.categories);
 		$scope.categories = categories.categories;
 
-		$scope.getId = function(product){
-			return product._id;
+		$scope.getId = function(cate){
+			return cate._id;
+		}
+
+		$scope.setActive = function(cate){
+			if (cate._id === category._id) {
+				return "active";
+			} else {
+				return "";
+			}
 		}
 }]);
 
