@@ -240,7 +240,7 @@ router.post('/login', function(req, res, next){
   })(req, res, next);
 });
 
-router.put('/products/:product/current-price', function(req, res, next){
+router.put('/products/:product/current-price', auth, function(req, res, next){
 	console.log(req.body);
 	Product.update(
 		{_id:req.product._id}, 

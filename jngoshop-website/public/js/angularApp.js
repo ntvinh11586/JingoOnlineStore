@@ -118,7 +118,7 @@ app.factory('categories', ['$http', function($http){
 	return o;
 }]);
 
-app.factory('products', ['$http', function($http){
+app.factory('products',  ['$http', 'auth', function($http, auth){
 	var o = {
 		products: []
 	};
@@ -136,9 +136,20 @@ app.factory('products', ['$http', function($http){
 	};
 
 	o.bid = function(id, currentPrice){
-		return $http.put('/products/' + id + '/current-price', {'currentPrice': currentPrice}).then(function(res){
-			console.log(res);
-		});
+		return $http.put('/products/' + id + '/current-price', 
+			{'currentPrice': currentPrice},
+			{
+				headers: {Authorization: 'Bearer '+auth.getToken()}
+			}).then(
+			function(response){
+         		// success callback
+         		return true;
+		    }, 
+		     function(response){
+		         // failure callback
+		        return false;
+		     }
+		     );
 	}
 
 	// o.update = function(id, price){
@@ -303,9 +314,10 @@ app.controller('productDetailController', [
 				return;
 			}
 
-			products.bid(product._id, $scope.currentPrice);
-			product.currentPrice = $scope.currentPrice;
-			$scope.currentPrice = "";
+			if (products.bid(product._id, $scope.currentPrice)) {
+				product.currentPrice = $scope.currentPrice;
+				$scope.currentPrice = "";
+			}
 		}
 
 
